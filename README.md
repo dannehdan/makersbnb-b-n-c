@@ -3,6 +3,10 @@
 An AirBnB clone
 Team name: Boats n Codes 
 
+```
+git checkout -b <branch name>
+```
+
 ## User Stories
 
 ```
