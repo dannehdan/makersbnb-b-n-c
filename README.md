@@ -1,6 +1,7 @@
 # MakersBnB
 
 An AirBnB clone
+Team name: Boats n Codes 
 
 ## User Stories
 
