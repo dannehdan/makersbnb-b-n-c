@@ -1,10 +1,14 @@
 # MakersBnB
 
-An AirBnB clone
 Team name: Boats n Codes 
 
+This project is to create a full stack web application that is an AirBnb Clone. MakersBnb will allow users to sign up in order to list, view and rent properties. 
+
+
+# Git Commands 
 ```
-git checkout -b <branch name>
+- git checkout -b <branch name>
+
 ```
 
 ## User Stories
@@ -65,3 +69,11 @@ As a property owner,
 So that my room availability is accurate,
 My space(s) will remain available until a user has confirmed a booking request
 ```
+
+# Database Setup
+
+# How To Run 
+
+# How To Run Tests
+
+# Useful Info
