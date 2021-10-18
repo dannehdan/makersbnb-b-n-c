@@ -5,6 +5,12 @@ An AirBnB clone
 Team name: Boats n Codes 
 
 ```
+ruby 3.0.0
+bundle install
+rackup
+```
+
+```
 git checkout -b <branch name>
 ```
 
