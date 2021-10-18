@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get "/" do
-    "Welcome to MakersBnB!"
+  erb (:index)
   end
 
   run! if app_file == $0
