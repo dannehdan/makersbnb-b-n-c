@@ -5,13 +5,13 @@ Team name: Boats n Codes
 This project is to create a full stack web application that is an AirBnb Clone. MakersBnb will allow users to sign up in order to list, view and rent properties. 
 
 
-# Git Commands 
 ```
 ruby 3.0.0
 bundle install
 rackup
 ```
 
+# Git Commands 
 ```
 git checkout -b <branch name>
 ```
