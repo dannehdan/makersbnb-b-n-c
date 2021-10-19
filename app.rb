@@ -1,5 +1,6 @@
 require "sinatra/base"
 require "sinatra/reloader"
+require "./lib/room"
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -21,6 +22,11 @@ class MakersBnB < Sinatra::Base
       {id: 3, name: "Property 3", description: "This is a property"}
     ]
     erb (:"rooms/index")
+  end
+
+  get "/rooms" do
+    @rooms = Room.all
+    erb(:rooms)
   end
 
   run! if app_file == $0
