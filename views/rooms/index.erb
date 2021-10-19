@@ -1,14 +1,27 @@
-  <div class="top-row text-center">
-      <h1 style="text-align: center;">Book a space</h1>
-  </div>
+<div class="top-row text-center">
+    <h1>Book a space</h1>
+</div>
 
-  <div class="container-md">
-    <ul>
-    <% @rooms.each do |property| %>
-      <div class="row room-row">
-        <li><%= property.name %></li>
-        <li><%= property.description %></li>
-      </div>
-    <% end %>
-    </ul>
-  </div>
+<div>
+  <p class="subtitle">Browse our selection of rooms</p>
+</div>
+
+<div class="container-md">
+  <ul>
+  <% @rooms.each do |property| %>
+    <div class="row room-row" id="<%= property.id %>">
+      <span class="room-info col-md-10">
+        <p class="room-name"><%= property.name %></p>
+        <p class="room-description">
+          <%= property.description.length > 50 ? "#{property.description[0, 50]}..." : property.description %>
+        </p>
+      </span>
+      <span class="room-redirect col-md-2">
+        <a href="/rooms/<%= property.id %>" target="_blank">
+          <img class="redirect-icon" src="images/redirect-arrow.png">
+        </a>
+      </span>
+    </div>
+  <% end %>
+  </ul>
+</div>

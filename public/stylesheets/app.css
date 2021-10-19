@@ -1,0 +1,39 @@
+.room-row {
+  text-align: left;
+  border-style: solid;
+  border-color: black;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 20px 0px 20px 0px;
+}
+
+.room-name {
+  font-family: Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.room-description {
+  font-family: Tahoma, sans-serif;
+  color: rgb(100, 100, 100);
+  font-style: italic;
+  font-size: 90%
+}
+
+.room-info {
+  float: left;
+}
+
+.redirect-icon {
+  float: right;
+  vertical-align: middle;
+}
+
+.top-row {
+  margin: 30px 0px 30px 0px;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 30px;
+}

@@ -75,6 +75,8 @@ So that my room availability is accurate,
 My space(s) will remain available until a user has confirmed a booking request
 ```
 
+# How To Run 
+
 Clone this repository and then run:
 bundle
 
