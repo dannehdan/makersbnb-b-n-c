@@ -75,12 +75,35 @@ So that my room availability is accurate,
 My space(s) will remain available until a user has confirmed a booking request
 ```
 
-# Database Setup
-
-Set up databases for `makersbnb` and `makersbnb_test` and run the queries in the `db/migrations` directory
-
 # How To Run 
 
-# How To Run Tests
+Clone this repository and then run:
+bundle
 
-# Useful Info
+### To set up the database
+
+Connect to `psql` and create the `makersbnb` and `makersbnb_test` databases:
+
+```
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
+```
+
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+
+### To run the MakersBnB app:
+
+```
+rackup -p 3000
+```
+To view rooms, navigate to `localhost:3000/rooms`.
+
+### To run tests:
+
+```
+rspec
+```
+### To run linting:
+```
+rubocop
+```
