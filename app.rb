@@ -6,12 +6,21 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get "/" do
+  get '/' do
     erb (:index)
   end
 
-  get "/about" do
-    erb(:about)
+  get '/about' do
+    erb (:about)
+  end
+
+  get '/rooms' do
+    @properties = [
+      {id: 1, name: "Property 1", description: "This is a property"},
+      {id: 2, name: "Property 2", description: "This is a property"},
+      {id: 3, name: "Property 3", description: "This is a property"}
+    ]
+    erb (:"rooms/index")
   end
 
   run! if app_file == $0
