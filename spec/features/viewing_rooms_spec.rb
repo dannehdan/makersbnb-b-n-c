@@ -9,7 +9,6 @@ feature 'Viewing listings' do
 
   scenario 'The site shows rooms' do
     add_rooms_to_test_database
-    
     properties = Room.all
 
     visit('/')
