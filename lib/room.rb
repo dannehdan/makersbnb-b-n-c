@@ -23,4 +23,16 @@ attr_reader :id, :name, :description
     end
   end
 
+  def self.add(name:, description:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+    connection = PG.connect(dbname: 'makersbnb')
+    end
+
+    result = connection.exec_params(
+      "INSERT INTO rooms (name, description) VALUES($1, $2) RETURNING id, name, description;",[name, description]
+    )
+    Room.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'])
+  end
 end
