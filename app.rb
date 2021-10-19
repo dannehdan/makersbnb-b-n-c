@@ -14,5 +14,10 @@ class MakersBnB < Sinatra::Base
     erb(:about)
   end
 
+  get "/rooms" do
+    @rooms = Room.all
+    erb(:rooms)
+  end
+
   run! if app_file == $0
 end
