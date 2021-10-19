@@ -77,6 +77,8 @@ My space(s) will remain available until a user has confirmed a booking request
 
 # Database Setup
 
+Set up databases for `makersbnb` and `makersbnb_test` and run the queries in the `db/migrations` directory
+
 # How To Run 
 
 # How To Run Tests
