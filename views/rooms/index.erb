@@ -1,0 +1,15 @@
+  <div class="top-row text-center">
+      <h1 style="text-align: center;">Book a space</h1>
+  </div>
+
+  <div class="container-md">
+    <ul>
+    <% @properties.each do |property| %>
+      <div class="row room-row">
+        <li><%= property[:name] %></li>
+        <li><%= property[:description] %></li>
+      </div>
+    <% end %>
+    </ul>
+  </div>
+  
