@@ -1,8 +1,18 @@
-<h1>Book a space</h1>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous" />
+</head>
 
-<ul>
-<% @properties.each do |property| %>
-  <li><%= property[:name] %></li>
-  <li><%= property[:description] %></li>
-<% end %>
-</ul>
+  <div class="top-row text-center">
+      <h1 style="text-align: center;">Book a space</h1>
+  </div>
+
+  <div class="container-md">
+    <ul>
+    <% @properties.each do |property| %>
+      <div class="row">
+        <li><%= property[:name] %></li>
+        <li><%= property[:description] %></li>
+      </div>
+    <% end %>
+    </ul>
+  </div>
