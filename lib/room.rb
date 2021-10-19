@@ -14,12 +14,12 @@ attr_reader :id, :name, :description
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
-    connection = PG.connect(dbname: 'makersbnb')
+      connection = PG.connect(dbname: 'makersbnb')
     end
 
     result = connection.exec('SELECT * FROM rooms;')
     result.map do |room|
-    Room.new(id: room['id'], name: room['name'], description: room['description'])
+      Room.new(id: room['id'], name: room['name'], description: room['description'])
     end
   end
 
