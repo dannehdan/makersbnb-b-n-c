@@ -15,7 +15,7 @@ class Room
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
-      connection = PG.connect(ENV['DATABASE_URL'])
+      connection = (ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL']))
     end
 
     result = connection.exec('SELECT * FROM rooms;')
