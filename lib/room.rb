@@ -1,4 +1,5 @@
 require "pg"
+# require_relative "../file.rb"
 
 class Room
 
@@ -14,7 +15,7 @@ class Room
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect(dbname: 'makersbnb_test')
     else
-      connection = PG.connect(dbname: 'makersbnb')
+      connection = PG.connect(ENV['DATABASE_URL'])
     end
 
     result = connection.exec('SELECT * FROM rooms;')
