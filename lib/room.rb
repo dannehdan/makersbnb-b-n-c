@@ -1,5 +1,5 @@
 require "pg"
-require_relative "../file.rb"
+# require_relative "../file.rb"
 
 class Room
 
