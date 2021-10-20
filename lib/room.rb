@@ -53,4 +53,23 @@ class Room
       available_to: result[0]['available_to']
     )
   end
+
+  def self.find(id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+    else
+      connection = (ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(dbname: ENV['DATABASE_URL']))
+    end
+
+    result = connection.exec_params('SELECT * FROM rooms WHERE id = $1::int;', [id])
+
+    Room.new(
+      id: result[0]["id"],
+      name: result[0]['name'],
+      description: result[0]['description'],
+      rate: result[0]['rate'],
+      available_from: result[0]['available_from'],
+      available_to: result[0]['available_to']
+    )
+  end
 end
