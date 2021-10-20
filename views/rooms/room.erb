@@ -1,3 +1,22 @@
-<%= @room.name %>
-MakersBnb rooms
-<%= @room.description %>
+<div class="top-row text-center">
+    <h2><%= @room.name %></h2>
+</div>
+
+<div class="container-sm">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm justify-content-center">
+            <span>
+              <img src="/images/template_house.jpeg" alt="Template House" width=50%>
+            </span>
+          </div>
+          <div class="col-sm">
+            <p class="room-description"><%= @room.description %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
