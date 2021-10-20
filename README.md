@@ -80,6 +80,8 @@ My space(s) will remain available until a user has confirmed a booking request
 Clone this repository and then run:
 bundle
 
+=> Make sure to add info about env vars 
+
 ### To set up the database
 
 Connect to `psql` and create the `makersbnb` and `makersbnb_test` databases:
