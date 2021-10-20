@@ -1,5 +1,7 @@
 # MakersBnB
 
+https://makersbnb-b-n-c.herokuapp.com/
+
 Team name: Boats n Codes 
 
 This project is to create a full stack web application that is an AirBnb Clone. MakersBnb will allow users to sign up in order to list, view and rent properties. 
