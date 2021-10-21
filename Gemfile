@@ -12,6 +12,7 @@ gem 'sinatra'
 gem 'sinatra-reloader'
 gem 'sinatra-contrib'
 gem 'webrick'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'
