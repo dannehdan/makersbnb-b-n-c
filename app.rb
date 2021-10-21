@@ -24,6 +24,11 @@ class MakersBnB < Sinatra::Base
     erb (:"rooms/new")
   end
 
+  post "/rooms" do
+    Room.add(name: params[:name], description: params[:description], rate: params[:rate])
+    redirect "/rooms"
+  end
+
   get "/rooms/:id" do
     @room = Room.find(id: params[:id])
     erb(:"rooms/room")
