@@ -27,11 +27,11 @@ class Room
     end
   end
 
-  def self.add(name:, description:, rate:)
+  def self.add(name:, description:, rate:, available_from:, available_to:)
     connection = Room.connect
     result = connection.exec_params(
-      "INSERT INTO rooms (name, description, rate) VALUES($1, $2, $3) RETURNING id, name, description, rate;",
-      [name, description, rate]
+      "INSERT INTO rooms (name, description, rate, available_from, available_to) VALUES($1, $2, $3, $4, $5) RETURNING id, name, description, rate, available_from, available_to;",
+      [name, description, rate, available_from, available_to]
     )
     Room.new(
       id: result[0]["id"],

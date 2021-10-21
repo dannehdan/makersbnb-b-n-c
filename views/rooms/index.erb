@@ -28,7 +28,7 @@
       <div class="col">
           <p class="room-name"><%= property.name %></p>
           <p class="room-description">
-            <%= property.description.length > 50 ? "#{property.description[0, 100]}..." : property.description %>
+            <%= property.description.length > 100 ? "#{property.description[0, 100]}..." : property.description %>
           </p>
           <p><%= sprintf('£%2.2f', property.rate) %> per night</p>
       </div>
