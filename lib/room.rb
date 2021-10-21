@@ -77,6 +77,8 @@ class Room
         available_from: room['available_from'],
         available_to: room['available_to']
         )
+    end
+  end
 
   def self.connect
     if ENV['ENVIRONMENT'] == 'test'
@@ -85,4 +87,5 @@ class Room
       ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL'])
     end
   end
+  
 end
