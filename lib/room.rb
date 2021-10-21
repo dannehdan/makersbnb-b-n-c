@@ -14,12 +14,7 @@ class Room
   end
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = (ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL']))
-    end
-
+    connection = Room.connect
     result = connection.exec('SELECT * FROM rooms;')
     result.map do |room|
       Room.new(
@@ -34,12 +29,7 @@ class Room
   end
 
   def self.add(name:, description:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = (ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL']))
-    end
-
+    connection = Room.connect
     result = connection.exec_params(
       "INSERT INTO rooms (name, description) VALUES($1, $2) RETURNING id, name, description;",
       [name, description]
@@ -55,12 +45,7 @@ class Room
   end
 
   def self.find(id:)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'makersbnb_test')
-    else
-      connection = (ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(dbname: ENV['DATABASE_URL']))
-    end
-
+    connection = Room.connect
     result = connection.exec_params('SELECT * FROM rooms WHERE id = $1::int;', [id])
 
     Room.new(
@@ -71,5 +56,13 @@ class Room
       available_from: result[0]['available_from'],
       available_to: result[0]['available_to']
     )
+  end
+
+  def self.connect
+    if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'makersbnb_test')
+    else
+      ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL'])
+    end
   end
 end
