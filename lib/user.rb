@@ -1,10 +1,37 @@
+require 'bcrypt'
+
 class User
 
-  attr_reader :name, :password
+  attr_reader :name, :id, :email
 
-  def initialize(name, password)
+  def initialize(email:, id:, name:)
     @name = name
-    @password = password
+    @id = id
+    @email = email
   end
-  
+
+  def self.create(email:, password:, name:)
+    encrypted_password = BCrypt::Password.create(password)
+    connection = User.connect
+    result = connection.exec_params(
+      "INSERT INTO users (email, password, name) VALUES ($1, $2, $3)
+      RETURNING id, email, name;",
+      [email, encrypted_password, name]
+    )
+
+    User.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      name: result[0]['name']
+    )
+  end
+
+  def self.connect
+    if ENV['ENVIRONMENT'] == 'test'
+      PG.connect(dbname: 'makersbnb_test')
+    else
+      ENV['LOCAL_ENV'] == 'local' ? PG.connect(dbname: 'makersbnb') : PG.connect(ENV['DATABASE_URL'])
+    end
+  end
+
 end

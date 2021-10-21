@@ -3,7 +3,7 @@ require './lib/room'
 feature 'Viewing listings' do
   scenario 'The site shows listed rooms page' do
     visit('/')
-    click_button('View Rooms')
+    click_link('Rooms')
     expect(page).to have_content('Book a space')
   end
 
@@ -12,10 +12,11 @@ feature 'Viewing listings' do
     properties = Room.all
 
     visit('/')
-    click_button('View Rooms')
+    click_link('Rooms')
     properties.each do |property|
       expect(page).to have_content(property.name)
       expect(page).to have_content(property.description)
+      expect(page).to have_content(property.rate)
     end
   end
 end

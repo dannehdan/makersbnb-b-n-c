@@ -1,6 +1,7 @@
 require "sinatra/base"
 require "sinatra/reloader"
 require "./lib/room"
+require './lib/user'
 
 class MakersBnB < Sinatra::Base
   configure :development do
@@ -18,7 +19,8 @@ class MakersBnB < Sinatra::Base
   post '/users' do
     User.create(
       email: params[:email],
-      password: params[:password]
+      password: params[:password],
+      name: params[:name]
     )
     redirect('/')
   end
