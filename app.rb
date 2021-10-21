@@ -30,6 +30,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/search' do
+    @search = params[:search]
     @rooms = Room.search(params[:search])
     erb(:"rooms/search")
   end
