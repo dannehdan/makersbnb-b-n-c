@@ -1,5 +1,7 @@
 feature "Adding a new room" do
   scenario "A user can add a room to MakersBnB" do
+    visit('/')
+    signed_in_user
     visit("/rooms/new")
     fill_in("name", with: "Room 1")
     fill_in("description", with: "Lovely room")
