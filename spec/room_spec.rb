@@ -14,7 +14,7 @@ describe Room do
   end
   describe ".add" do
     it "adds a new room" do
-      room = Room.add(name: "Room 1", description: "This is a room.")
+      room = Room.add(name: "Room 1", description: "This is a room.", rate: 150.00, available_from: "2021-10-21", available_to: "2021-10-22")
       persisted_data = persisted_data(id: room.id)
 
       expect(room.name).to eq "Room 1"
@@ -25,8 +25,8 @@ describe Room do
   end
 
   describe ".find" do
-    it 'find a room' do 
-      room = Room.add(name: "Room 1", description: "This is a room.")
+    it "find a room" do
+      room = Room.add(name: "Room 1", description: "This is a room.", rate: 150, available_from: "2021-10-21", available_to: "2021-10-22")
       found_room = Room.find(id: room.id)
       persisted_data = persisted_data(id: room.id)
 
@@ -37,10 +37,10 @@ describe Room do
     end
   end
 
-  describe '.search' do
-    it 'searches for a room' do
-      room = Room.add(name: "Room 1", description: "This is a room.")
-      search = Room.search('room')
+  describe ".search" do
+    it "searches for a room" do
+      room = Room.add(name: "Room 1", description: "This is a room.", rate: 150, available_from: "2021-10-21", available_to: "2021-10-22")
+      search = Room.search("room")
       expect(search[0].name).to eq "Room 1"
     end
   end

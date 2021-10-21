@@ -1,0 +1,30 @@
+<body>
+    <div><h1>Please fill the form to add new room:</h1>
+    </div>
+    <br>
+<div>
+<form action="/rooms/add" method="post">
+    <p>Enter the room's name:</p>
+    <textarea cols="20" name="name" rows="5" placeholder="Write Here"></textarea><br/>
+    <p>Enter the room's description:</p>
+   <div class="col-md-8 col-md-offset-2">
+        <textarea name="description" id="textarea" maxlength="300" rows="5" style="width: 100%" placeholder="Write Here"autofocus></textarea>
+        <div id="count">
+            <span id="current_count">0</span>
+            <span id="maximum_count">/ 300</span>
+        </div>
+    </div>
+    <p>Enter the room's rate per night:</p>
+    <input type="text" name="rate" placeholder="100">
+    <br><br>
+    <p>Enter the room's availability start date:</p>
+    <input type="date" name="start_date">
+    <br><br>
+    <p>Enter the room's availability end date:</p>
+    <input type="date" name="end_date">
+    <br><br>
+    <input type="submit" name="submit" value="Add Room">
+</form>
+</body>
+
+ <script src="/javascript/script.js"></script>
