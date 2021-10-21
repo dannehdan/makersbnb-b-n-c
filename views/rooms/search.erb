@@ -6,6 +6,17 @@
   <p class="subtitle">Showing rooms that match your search: <i>"<%= @search %>"</i></p>
 </div>
 
+<div class="row">
+  <div class="d-flex justify-content-center">
+    <div>
+      <form action="/search">
+        <input type="text" name="search" placeholder="Search">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="container-md">
   <ul>
   <% @rooms.each do |property| %>
