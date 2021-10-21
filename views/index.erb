@@ -1,5 +1,11 @@
+  <div class="top-row text-center">
+    <h1>MakersBnB</h1>
+    <% if session[:user_id] %>
+      <%= "Welcome, #{session[:user_name]}" %>
+    <% end %>
+</div>
+  
   <div align="center">
-    <h1>Welcome to MakersBnB!</h1>
     <form  action="/about" method="get">
       <button class="button" type="submit">About</button>
     </form> 

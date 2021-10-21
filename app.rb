@@ -4,6 +4,7 @@ require "./lib/room"
 require './lib/user'
 
 class MakersBnB < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
   end
@@ -17,12 +18,31 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users' do
-    User.create(
+    user = User.create(
       email: params[:email],
       password: params[:password],
       name: params[:name]
     )
+    session[:user_id] = user.id
+    session[:user_name] = user.name
     redirect('/')
+  end
+
+  get '/sessions/new' do
+    erb (:"sessions/new")
+  end
+
+  post '/sessions' do
+    if user = User.authenticate(
+      email: params[:email],
+      password: params[:password]
+    )
+      session[:user_id] = user.id
+      session[:user_name] = user.name
+      redirect to('/')
+    else
+      redirect to('/sessions/new')
+    end
   end
 
   get '/about' do
@@ -30,8 +50,12 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/rooms' do
-    @rooms = Room.all
-    erb (:"rooms/index")
+    if session[:user_id]
+      @rooms = Room.all
+      erb (:"rooms/index")
+    else
+      redirect to('/sessions/new')
+    end
   end
 
   get '/rooms/:id' do

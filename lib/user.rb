@@ -26,6 +26,21 @@ class User
     )
   end
 
+  def self.authenticate(email:, password:)
+    connection = User.connect
+    result = connection.exec(
+      "SELECT * FROM users WHERE email = $1",
+      [email]
+    )
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
+    User.new(
+      id: result[0]['id'],
+      email: result[0]['email'],
+      name: result[0]['name']
+    )
+  end
+  
   def self.connect
     if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'makersbnb_test')
