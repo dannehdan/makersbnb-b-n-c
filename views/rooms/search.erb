@@ -3,7 +3,7 @@
 </div>
 
 <div>
-  <p class="subtitle">Browse our selection of rooms</p>
+  <p class="subtitle">Showing rooms that match your search: <i>"<%= @search %>"</i></p>
 </div>
 
 <div class="row">
@@ -24,11 +24,11 @@
       <span class="room-info col-md-10">
         <p class="room-name"><%= property.name %></p>
         <p class="room-description">
-          <%= property.description.length > 50 ? "#{property.description[0, 100]}..." : property.description %>
+          <%= property.description.length > 50 ? "#{property.description[0, 50]}..." : property.description %>
         </p>
       </span>
       <span class="room-redirect col-md-2">
-        <a href="/rooms/<%= property.id %>">
+        <a href="/rooms/<%= property.id %>" target="_blank">
           <img class="redirect-icon" src="images/redirect-arrow.png">
         </a>
       </span>

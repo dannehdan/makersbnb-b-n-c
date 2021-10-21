@@ -28,6 +28,12 @@ class MakersBnB < Sinatra::Base
   get '/boat-icon.svg' do
     send_file File.join(File.dirname(__FILE__), "public/images/boat-icon.svg")
   end
+
+  get '/search' do
+    @search = params[:search]
+    @rooms = Room.search(params[:search])
+    erb(:"rooms/search")
+  end
   
   run! if app_file == $0
 end

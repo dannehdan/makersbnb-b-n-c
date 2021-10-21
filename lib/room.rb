@@ -58,6 +58,26 @@ class Room
     )
   end
 
+  def self.search(search)
+    connection = Room.connect
+    term = '%' + search + '%'
+
+    result = connection.exec_params(
+      'SELECT * FROM rooms 
+      WHERE (name ILIKE $1) OR (description ILIKE $1);',
+      [term]
+      )
+
+    result.map do |room|
+      Room.new(
+        id: room['id'],
+        name: room['name'],
+        description: room['description'],
+        rate: room['rate'],
+        available_from: room['available_from'],
+        available_to: room['available_to']
+        )
+
   def self.connect
     if ENV['ENVIRONMENT'] == 'test'
       PG.connect(dbname: 'makersbnb_test')

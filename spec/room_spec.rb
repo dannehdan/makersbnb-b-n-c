@@ -37,4 +37,11 @@ describe Room do
     end
   end
 
+  describe '.search' do
+    it 'searches for a room' do
+      room = Room.add(name: "Room 1", description: "This is a room.")
+      search = Room.search('room')
+      expect(search[0].name).to eq "Room 1"
+    end
+  end
 end
