@@ -11,4 +11,9 @@ describe User do
       expect(user.password).to eq(password)
     end
   end
+
+  describe '.create' do
+    it 'should add a new user to the database' do
+    end
+  end
 end
