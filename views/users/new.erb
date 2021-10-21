@@ -1,0 +1,31 @@
+<div class="top-row text-center">
+    <h1>Sign Up</h1>
+</div>
+
+<div class = "container-md">
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <form action="/users" method="post">
+        <div class="form-group">
+          <input class="form-control" type="text" name="name" placeholder="Your Name" maxlength="100">
+        </div>
+        <br>
+        <div class="form-group">
+          <input class="form-control" type="email" name="email" placeholder="Email">
+        </div>
+        <br>
+        <div class="form-group">
+          <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <br>
+        <div class="form-group d-flex justify-content-center">  
+          <input type="submit" value="Sign Up">
+        </div>
+        <div>
+        <br>
+          <p class="form-group d-flex justify-content-center" style="font-size:12px; color:gray">Already have an account?
+          <p class="form-group d-flex justify-content-center" style="font-size:12px;"><a href="/sessions/new"> Sign In</a></p>
+        </div>
+      </div>
+  </div>
+</div>
