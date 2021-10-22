@@ -39,11 +39,6 @@ Testing:
 Hosting:
 - Heroku
 
-# Git Commands 
-```
-git checkout -b <branch name>
-```
-
 ## User Stories
 
 ```
