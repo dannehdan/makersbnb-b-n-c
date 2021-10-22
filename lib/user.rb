@@ -38,14 +38,12 @@ class User
   # :nocov:
   def self.connection
     if ENV["ENVIRONMENT"] == "test"
-      dbname = "makersbnb_test"
+      PG.connect(dbname: 'makersbnb_test')
     elsif ENV["LOCAL_ENV"] == "local"
-      dbname = "makersbnb"
+      PG.connect(dbname: 'makersbnb')
     else
-      dbname = ENV["DATABASE_URL"]
+      PG.connect(ENV['DATABASE_URL'])
     end
-    PG.connect(dbname: dbname)
   end
   # :nocov:
-
 end
