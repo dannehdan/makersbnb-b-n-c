@@ -6,12 +6,38 @@ Team name: Boats n Codes
 
 This project is to create a full stack web application that is an AirBnb Clone. MakersBnb will allow users to sign up in order to list, view and rent properties. 
 
-
+During our first engineering project, we learnt a lot about teamwork, project planning, databases, front end development, backend development, web hosting. 
 ```
 ruby 3.0.0
 bundle install
 rackup
 ```
+
+# Technologies we used
+
+Programing languages:
+- Ruby
+- HTML
+- JavaScript
+- CSS
+
+Framework:
+- Sinatra
+- Webrick
+
+Database management:
+- PSQL
+- TablePlus
+- PG
+
+Testing:
+- Capybara 
+- Rspec
+- Simplecov
+- Rubocop
+
+Hosting:
+- Heroku
 
 # Git Commands 
 ```
@@ -77,6 +103,25 @@ So that my room availability is accurate,
 My space(s) will remain available until a user has confirmed a booking request
 ```
 
+![User_Stories](https://user-images.githubusercontent.com/89548274/138458135-0f645faf-7af9-4ce5-93d5-d73ac32f6ac9.png)
+
+
+
+## MVP
+
+![MVP](https://user-images.githubusercontent.com/89548274/138457112-a596625d-dadb-43bd-84a8-2d1eeed92ab4.png)
+
+## First Day Homepage
+
+![First day](https://user-images.githubusercontent.com/89548274/138457404-a33389c3-3002-436c-a03b-cd3c31559618.png)
+
+
+## Final Homepage
+
+![Final homepage](https://user-images.githubusercontent.com/89548274/138457498-f88c771a-5605-4b82-9482-d2dc1bfeecfb.png)
+
+
+
 # How To Run 
 
 Clone this repository and then run:
@@ -104,6 +149,7 @@ To view rooms, navigate to `localhost:3000/rooms`.
 
 ### To run tests:
 
+
 ```
 rspec
 ```
@@ -111,3 +157,12 @@ rspec
 ```
 rubocop
 ```
+
+# Credits
+
+Our team members:
+- [Aisha](https://github.com/AishaDorsett)
+- [Nej](https://github.com/nejlalowe)
+- [Anmol](https://github.com/Anmolbhati30)
+- [Dan](https://github.com/dannehdan)
+- [Daniel](https://github.com/DannyL90)

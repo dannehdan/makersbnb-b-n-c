@@ -3,6 +3,6 @@ feature "Viewing about spec" do
     visit "/"
 
     click_link "About"
-    expect(page).to have_content('About MakersBnB')
+    expect(page).to have_content("About MakersBnB")
   end
 end
