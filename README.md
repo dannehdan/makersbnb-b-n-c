@@ -29,6 +29,7 @@ Database management:
 - PSQL
 - TablePlus
 - PG
+- BCrypt for encrypted passwords
 
 Testing:
 - Capybara 
