@@ -24,7 +24,7 @@ class User
   end
 
   def self.authenticate(email:, password:)
-    result = User.connection.exec(
+    result = User.connection.exec_params(
       "SELECT * FROM users WHERE email = $1",
       [email]
     )
