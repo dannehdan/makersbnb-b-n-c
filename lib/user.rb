@@ -19,9 +19,7 @@ class User
     )
 
     User.new(
-      id: result[0]["id"],
-      email: result[0]["email"],
-      name: result[0]["name"],
+      id: result[0]["id"], email: result[0]["email"], name: result[0]["name"]
     )
   end
 
@@ -33,13 +31,9 @@ class User
     return unless result.any?
     return unless BCrypt::Password.new(result[0]["password"]) == password
     User.new(
-      id: result[0]["id"],
-      email: result[0]["email"],
-      name: result[0]["name"],
+      id: result[0]["id"], email: result[0]["email"], name: result[0]["name"],
     )
   end
-
-  private
 
   # :nocov:
   def self.connection
