@@ -12,7 +12,7 @@ class User
   def self.create(email:, password:, name:)
     encrypted_password = BCrypt::Password.create(password)
 
-    result = connection.exec_params(
+    result = User.connection.exec_params(
       "INSERT INTO users (email, password, name) VALUES ($1, $2, $3)
       RETURNING id, email, name;",
       [email, encrypted_password, name]
@@ -24,7 +24,7 @@ class User
   end
 
   def self.authenticate(email:, password:)
-    result = connection.exec(
+    result = User.connection.exec(
       "SELECT * FROM users WHERE email = $1",
       [email]
     )
