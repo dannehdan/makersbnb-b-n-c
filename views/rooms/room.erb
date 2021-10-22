@@ -1,7 +1,7 @@
 <div class="top-row text-center">
     <h2><%= @room.name %></h2>
     <h6><%= sprintf('£%2.2f', @room.rate) %> per night</h2>
-    <p>Available: <%= Time.new(@room.available_from).strftime('%d %b %Y') %> - <%= Time.new(@room.available_to).strftime('%d %b %Y') %></p>
+    <p>Available: <%= Date.parse(@room.available_from).strftime('%d %b %Y') %> - <%= Date.parse(@room.available_to).strftime('%d %b %Y') %></p>
 </div>
 
 <div class="container-sm">
