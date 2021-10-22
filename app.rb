@@ -39,10 +39,10 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/sessions" do
-    if user = User.authenticate(
+    if (user = User.authenticate(
       email: params[:email],
       password: params[:password],
-    )
+    ))
       session[:user_id] = user.id
       session[:user_name] = user.name
       redirect to("/")
@@ -65,7 +65,13 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/rooms/add" do
-    Room.add(name: params[:name], description: params[:description], rate: params[:rate], available_from: params[:start_date], available_to: params[:end_date])
+    Room.add(
+      name: params[:name],
+      description: params[:description],
+      rate: params[:rate],
+      available_from: params[:start_date],
+      available_to: params[:end_date]
+      )
     redirect "/rooms"
   end
 
