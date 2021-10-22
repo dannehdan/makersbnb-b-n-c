@@ -1,1 +1,1 @@
-web: bundle exec makersbnb-b-n-c -C config/app.rb
+web: bundle exec rackup config.ru -p ${PORT:-5000}
