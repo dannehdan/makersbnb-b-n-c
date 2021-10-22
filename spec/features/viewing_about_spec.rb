@@ -3,8 +3,6 @@ feature "Viewing about spec" do
     visit "/"
 
     click_link "About"
-    within("div.top-row") do
-      expect(find("h1").text).to eq "About"
-    end
+    expect(page).to have_content("About MakersBnB")
   end
 end
