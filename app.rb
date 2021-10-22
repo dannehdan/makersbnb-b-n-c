@@ -49,6 +49,11 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  post '/sessions/destroy' do
+    session.clear
+    redirect to('/')
+  end
+
   get '/rooms' do
     if session[:user_id]
       @rooms = Room.all
