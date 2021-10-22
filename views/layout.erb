@@ -29,8 +29,9 @@
           </div>
           <div class="navbar-nav ms-auto">
             <% if session[:user_id]%>
-            <form class="nav-item nav-link" action="/sessions/destroy" method="post">
-              <input type="submit" value="Log out">
+            <form id="logout-form" style="margin:0px; padding:0px" class="nav-item nav-link" action="/sessions/destroy" method="post" style="display: inline;" >
+              <a href="#" class="nav-item nav-link" onclick="document.getElementById('logout-form').submit();return false;">Logout</a>
+              <input type="submit" style="display:none" id="logout-btn">
             </form>
             <% else %>
             <a href="/sessions/new" class="nav-item nav-link">Login</a>
