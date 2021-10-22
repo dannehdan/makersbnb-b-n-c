@@ -1,30 +1,46 @@
-<body>
-    <div><h1>Please fill the form to add new room:</h1>
+<style>
+    textarea {
+        border: 2px solid;
+        border-radius: 25px;
+        border-color: black;
+        text-align: center;
+    }
+    input {
+        border: 2px solid;
+        border-radius: 25px;   
+    }
+</style>
+
+<body id="new-listings-body">
+    <div>
+        <h1 id="h1-add-listings">Fill in form to add a room listing:</h1>
     </div>
     <br>
-<div>
+
+<div class="container-listing" id="add-listing-page">
 <form action="/rooms/add" method="post">
     <p>Enter the room's name:</p>
-    <textarea cols="20" name="name" rows="5" placeholder="Write Here"></textarea><br/>
+    <textarea id="room-description" cols="20" name="name" rows="2" placeholder="Write Here" style="width: 15%"></textarea><br/><br>
     <p>Enter the room's description:</p>
-   <div class="col-md-8 col-md-offset-2">
-        <textarea name="description" id="textarea" maxlength="300" rows="5" style="width: 100%" placeholder="Write Here"autofocus></textarea>
+   <div id="description">
+        <textarea name="description" id="textarea-list" maxlength="300" rows="5" style="width: 70%" placeholder="Write Here"autofocus></textarea>
         <div id="count">
             <span id="current_count">0</span>
             <span id="maximum_count">/ 300</span>
         </div>
-    </div>
+   </div><br>
     <p>Enter the room's rate per night:</p>
-    <input type="text" name="rate" placeholder="100">
+    <input type="text" name="rate" placeholder="100" style="width: 15%">
     <br><br>
     <p>Enter the room's availability start date:</p>
-    <input type="date" name="start_date">
+    <input type="date" name="start_date" style="width: 15%">
     <br><br>
     <p>Enter the room's availability end date:</p>
-    <input type="date" name="end_date">
+    <input type="date" name="end_date" style="width: 15%">
     <br><br>
     <input type="submit" name="submit" value="Add Room">
 </form>
+</div>
 </body>
 
  <script src="/javascript/script.js"></script>
