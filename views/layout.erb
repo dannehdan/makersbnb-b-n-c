@@ -27,7 +27,13 @@
             <a href="/rooms" class="nav-item nav-link">Rooms</a>
           </div>
           <div class="navbar-nav ms-auto">
+            <% if session[:user_id]%>
+            <form class="nav-item nav-link" action="/sessions/destroy" method="post">
+              <input type="submit" value="Log out">
+            </form>
+            <% else %>
             <a href="/sessions/new" class="nav-item nav-link">Login</a>
+            <% end %>
           </div>
         </div>
       </div>
