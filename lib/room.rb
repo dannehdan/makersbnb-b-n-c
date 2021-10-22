@@ -13,7 +13,6 @@ class Room
   end
 
   def self.all
-    connection = Room.connect
     result = connection.exec("SELECT * FROM rooms;")
     result.map do |room|
       Room.new(
@@ -28,7 +27,6 @@ class Room
   end
 
   def self.add(name:, description:, rate:, available_from:, available_to:)
-    connection = Room.connect
     result = connection.exec_params(
       "INSERT INTO rooms (name, description, rate, available_from, available_to) VALUES($1, $2, $3, $4, $5) RETURNING id, name, description, rate, available_from, available_to;",
       [name, description, rate, available_from, available_to]
@@ -44,7 +42,6 @@ class Room
   end
 
   def self.find(id:)
-    connection = Room.connect
     result = connection.exec_params("SELECT * FROM rooms WHERE id = $1::int;", [id])
 
     Room.new(
@@ -58,7 +55,6 @@ class Room
   end
 
   def self.search(search)
-    connection = Room.connect
     term = "%" + search + "%"
 
     result = connection.exec_params(
@@ -79,11 +75,18 @@ class Room
     end
   end
 
-  def self.connect
+  private
+
+  # :nocov:
+  def self.connection
     if ENV["ENVIRONMENT"] == "test"
-      PG.connect(dbname: "makersbnb_test")
+      dbname = "makersbnb_test"
+    elsif ENV["LOCAL_ENV"] == "local"
+      dbname = "makersbnb"
     else
-      ENV["LOCAL_ENV"] == "local" ? PG.connect(dbname: "makersbnb") : PG.connect(ENV["DATABASE_URL"])
+      dbname = ENV["DATABASE_URL"]
     end
+    PG.connect(dbname: dbname)
   end
+  # :nocov:
 end
